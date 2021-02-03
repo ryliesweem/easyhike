@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,400,600,800&display=swap');
+body {
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  font-size: 11pt;
+  line-height: 14pt;
+  padding-top: 0;
+  margin: 0;
+}
+
+.background {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.icon {
+  display: block;
+  float: left;
+  width: 50px;
+  margin-left: 18px;
+  padding: 12px;
+}
+
+.banner {
+  height: 70px;
+  background-color: #FA5C37;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.title {
+  color: white;
+  font-size: 28pt;
+  font-weight: 800;
+  text-align: center;
+  padding: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title a {
+  color: white;
+  text-decoration: none;
+  transition-duration: 0.4s;
+}
+
+.title a:hover {
+  font-size: 30pt;
+}
+
+.left {
+  background-image: linear-gradient(#B6C8B7, #E9EDD4);
+  color: #404352;
+  height: 680px;
+  width: 350px;
+  position: absolute;
+  z-index: 1;
+  top: 100px;
+  left: 30px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.left-content {
+  padding: 25px;
+}
+
+.titletext {
+  text-align: right;
+  font-size: 62pt;
+  font-weight: 600;
+  line-height: 78pt;
+  padding-right: 100px;
+  padding-top: 100px;
+  color: white;
+}
+
+form {
+  line-height: 24pt;
+}
+
+input[type=text] {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  width: 70%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 50px;
+  margin-right: 10px;
+  outline: none;
+  box-sizing: border-box;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 80%;
+  border: 1px solid #404352;
+}
+
+.label {
+  margin-bottom: 25px;
+}
+
+.right {
+  margin-left: 400px;
+  top: 70px;
+  padding: 30px;
+}
+
+.hike-column {
+  width: 48%;
+  float: left;
+  height: 87%;
+  overflow: auto;
+}
+
+.camp-column {
+  width: 48%;
+  float: right;
+  height: 87%;
+  overflow: auto;
+}
+
+.header {
+  border-radius: 0px;
+  height: 25px;
+  background-color: #B6C8B7;
+  color: white;
+  font-size: 14pt;
+  font-weight: 400;
+  padding-left: 7px;
+  padding-top: 7px;
+  margin-top: 0;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+
+}
+
+#left-title {
+  font-size: 13pt;
+  line-height: 24pt;
+}
+
+left a {
+  color: white'
+}
+
+left a:hover {
+  margin: 15px;
+  font-size: 12pt;
+  font-weight: 400;
+  color: black;
+}
+
+left a:visited {
+  color: white;
+}
+
+button {
+  color: #white;
+  background-color: #FA5C37;
+  font-weight: 600;
+  font-size: 11pt;
+  border-radius: 25px;
+  border: 0px;
+  padding: 5px 20px;
+  transition-duration: 0.4s;
+}
+
+.searchbutton {
+  color: white;
+  margin-left: 100px;
+  margin-top: 25px;
+}
+
+button a:link, button a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+button a:hover {
+  color: white;
+}
+
+button:hover {
+  color: #404352;
+  border: 1px solid #404352;
+  border-color: #404352;
+  background-color: #E9EDD4
+}
+
+strong {
+  font-weight: 400;
+}
+
+.resultname {
+  color: #404352;
+  font-size: 16pt;
+  line-height: 24pt;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 0;
+  width: 90%;
+}
+
+.resultpic {
+  display: block;
+  width: 90%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.resultinfo {
+  line-height: 18pt;
+  margin-bottom: 60px;
+  color: #404352;
+}
+
+.summary {
+  font-size: 10pt;
+  font-weight: 400;
+  line-height: 15pt;
+  width: 90%;
+  color: #404352;
+}
+
+input[type=button] {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: #404352;
+  border: none;
+  border-radius: 50px;
+  margin-top: 10px;
+  outline: none;
+  background: none;
+  transition-duration: 0.4s;
+}
+
+input[type=button]:hover {
+  color: white;
+  font-size: 13px;
+}
+
+.noresults {
+  color: #404352;
+  font-size: 18pt;
+  line-height: 25pt;
+  font-weight: 400;
+}
+
+.conditioninfo {
+  font-weight: 200;
+}

@@ -1,0 +1,61 @@
+<html>
+<head><title>EasyHike</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>
+  function getLocation() {
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(fillPosition);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+
+  function fillPosition(position){
+    var location=document.getElementById("location");
+    location.value=position.coords.latitude + ',' + position.coords.longitude;
+  }
+  </script>
+
+</head>
+<!--Background image for this page credited to Brian Miller, used with artist's permission. More work can be found at http://orlincultureshop.com/-->
+<body style="background-image:url(assets/background.jpg)">
+  <div class="banner">
+    <div><a href="index.html">
+      <img class ="icon" src="assets/mountain.png"></a>
+    </div>
+    <p class="title"><a href="index.html">EasyHike</a></p>
+  </div>
+  <div class="left">
+    <div class="left-content">
+      <p id="left-title">Easily plan your next hiking trip by entering the information below!</p>
+      <form method="get" action="/results" autocomplete="off">
+        <div class="label">
+          <label for="location"><strong>Location:</strong><br></label>
+          <input type="text" id="location" name="location"/><br>
+          <input type="button" value="Use my current location ⤴" name="getLoc" onclick="getLocation()"/>
+        </div>
+        <div class="label">
+          <label for="travel"><strong>Maximum Travel Distance:</strong><br</label>
+          <input type="text" id="travel" name="travel"/> miles<br>
+        </div>
+        <div class="label">
+          <label for="length"><strong>Minimum Hike Length:</strong><br></label>
+          <input type="text" id="length" name="length"/> miles<br>
+        </div>
+        <div class="label">
+          <label for="length"><strong>Hike Difficulty:</strong><br></label>
+          <input type="radio" id="difficulty" name="difficulty" value="easy"/> Easy<br>
+          <input type="radio" id="difficulty" name="difficulty" value="intermediate"/> Intermediate<br>
+          <input type="radio" id="difficulty" name="difficulty" value="difficult"/> Difficult<br>
+        </div>
+        <div class="searchbutton">
+        </div>
+        <button class="searchbutton" type="submit" value="Submit">Submit</button>
+      </form>
+    </div>
+  </div>
+	<div class="right">
+		<p class="titletext">Hiking trips</br>made easy.</p>
+	</div>
+</body>
+</html>

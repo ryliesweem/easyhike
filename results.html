@@ -1,0 +1,103 @@
+<html>
+<head><title>EasyHike</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>
+  function getLocation() {
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(fillPosition);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+
+  function fillPosition(position){
+    var location=document.getElementById("location");
+    location.value=position.coords.latitude + ',' + position.coords.longitude;
+  }
+  </script>
+
+</head>
+<!--Background image for this page credited to Brian Miller, used with artist's permission. More work can be found at http://orlincultureshop.com/-->
+<body>
+  <div class="banner">
+    <div><a href="index.html">
+      <img class ="icon" src="assets/mountain.png"></a>
+    </div>
+    <p class="title"><a href="index.html">EasyHike</a></p>
+  </div>
+  <div class="left">
+    <div class="left-content">
+      <p id="left-title">Easily plan your next hiking trip by entering the information below!</p>
+      <form method="get" action="/results" autocomplete="off">
+        <div class="label">
+          <label for="location"><strong>Location:</strong><br></label>
+          <input type="text" id="location" name="location"/><br>
+          <input type="button" value="Use my current location ⤴" name="getLoc" onclick="getLocation()"/>
+        </div>
+        <div class="label">
+          <label for="travel"><strong>Maximum Travel Distance:</strong><br</label>
+          <input type="text" id="travel" name="travel"/> miles<br>
+        </div>
+        <div class="label">
+          <label for="length"><strong>Minimum Hike Length:</strong><br></label>
+          <input type="text" id="length" name="length"/> miles<br>
+        </div>
+        <div class="label">
+          <label for="length"><strong>Hike Difficulty:</strong><br></label>
+          <input type="radio" id="difficulty" name="difficulty" value="easy"/> Easy<br>
+          <input type="radio" id="difficulty" name="difficulty" value="intermediate"/> Intermediate<br>
+          <input type="radio" id="difficulty" name="difficulty" value="difficult"/> Difficult<br>
+        </div>
+        <div class="searchbutton">
+        </div>
+        <button class="searchbutton" type="submit" value="Submit">Submit</button>
+      </form>
+    </div>
+  </div>
+	<div class="right">
+		<div class="hike-column">
+			<p class="header">Hikes</p>
+      {% if hikes|length > 0 %}
+        {% for hike in hikes %}
+        {% if 'photoURL' in hike %}
+        <a href={{hike.hikeURL}} target="_blank"><img class="resultpic" src="{{hike.photoURL}}" alt="{{hike.name}}"></a>
+        {% endif %}
+        {% if 'photoURL' not in hike %}
+          <a href={{hike.hikeURL}} target="_blank"><img class="resultpic" src="assets/hikestock.jpg" alt="{{hike.name}}"></a>
+        {% endif %}
+        <p class="resultname">{{hike.hikename}}</p>
+        <div class="resultinfo">
+          <p>{{hike.location}}</br>{{hike.hikedata}}</p>
+          <div class="summary">
+            <p>{{hike.summary}}</p>
+            {% if 'conditionStatus' in hike %}
+              <p class="conditioninfo"><strong>Conditions:</strong> {{hike.conditionStatus}}. {{hike.conditionDetails}}. {{hike.conditionDate}}</p>
+              {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}
+          <p class="noresults">Sorry! No hikes have been found.</p>
+      {% endif %}
+		</div>
+		<div class="camp-column">
+			<p class="header">Campsites</p>
+      {% if campgrounds|length > 0 %}
+        {% for campground in campgrounds %}
+        {% if 'photoURL' in campground %}
+          <a href={{campground.campURL}} target="_blank"><img class="resultpic" src="{{campground.photoURL}}" alt="{{campground.name}}"></a>
+        {% else %}
+          <a href={{campground.campURL}} target="_blank"><img class="resultpic" src="assets/campstock.jpg" alt="{{campground.name}}"></a>
+        {% endif %}
+        <p class="resultname">{{campground.name}}</p>
+        <div class="resultinfo">
+          <p>{{campground.location}}</p>
+        </div>
+        {% endfor %}
+      {% else %}
+        <p class="noresults">Sorry! No campsites have been found.</p>
+      {% endif %}
+		</div>
+	</div>
+</body>
+</html>
